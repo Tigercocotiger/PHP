@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+		function traiteXmlSuggestions(xmlDoc) // Transformation XML en tableau
+		{
+			var options = xmlDoc.getElementsByTagName('donnee');
+			var optionsListe = new Array();
+			for (var i=0; i < options.length; ++i)
+			optionsListe.push(options[i].firstChild.data);
+			return optionsListe;
+		}
+		function metsEnPlace( liste) // fonction qui place les suggestions dans une liste de puces
+			{
+			while(document.getElementById('listeNoms').childNodes.length>0)
+			{
+				document.getElementById('listeNoms').removeChild(
+				document.getElementById('listeNoms').childNodes[0]);
+			}
+			for (var i=0; i < liste.length; ++i)
+			{
+				var nouveauElmt = document.createElement("option");
+				nouveauElmt.innerHTML = liste[i];
+				document.getElementById('listeNoms').appendChild(nouveauElmt);
+			}
+		}
+		function Boucle() //Fonction de rappel
+		{
+			var xhr;
+			try { xhr = new XMLHttpRequest(); }
+			catch(e){
+			xhr = new ActiveXObject(Microsoft.XMLHTTP);} xhr.onreadystatechange =
+			function()
+			{
+				if (xhr.readyState == 4)
+				{
+					if (xhr.status == 200)
+					{
+						var docXML = xhr.responseXML;
+						metsEnPlace(traiteXmlSuggestions(docXML));
+					}
+				}
+			};
+			xhr.open( "GET", "reponse.php?Choix=" + document.ajax.choix.value, true);
+			xhr.send(null);
+		}
+		function Selectionner() 
+		{
+			alert("OUI");
+		}
+	</script>
+</head>
+<body onLoad = "Boucle();">
+	<form method="POST" name="ajax" action="">
+		<label for="sites_choice">Choisir un sites : </label><br />
+		<input list="listeNoms" name="choix" onKeyUp="Boucle()" onChange="alert('ok')" >
+		<datalist id="listeNoms" >
+		</datalist>	
+	</form>
+</body>
+</html>
