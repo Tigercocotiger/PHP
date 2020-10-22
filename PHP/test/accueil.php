@@ -1,13 +1,14 @@
 <html>
+<?php
+	session_start(); 
+	$_SESSION['url']='accueil.php';
+    echo $_SESSION['login'];
 
+ ?>
 <style type="text/css">
 body {
     margin: 0;
-    background-image: url("fond.gif");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    
 }
 
 div {
@@ -20,7 +21,6 @@ div {
     margin-top: 3%;
     text-align: center;
     border-radius: 50px;
-    opacity: 0.33;
 }
 
 ul {
@@ -63,7 +63,6 @@ li a:hover {
     opacity: 1;
 }
 </style>
-
 <ul>
     <li><a class="active" href="accueil.php">Accueil</a></li>
     <li><a href="connexion.php">Connexion</a></li>

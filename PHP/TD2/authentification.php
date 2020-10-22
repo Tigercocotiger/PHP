@@ -18,7 +18,7 @@
 		$fin=0; 
 		?>
 
-		<p>Pour accéder à cette page il est nécessaire de vous identifier :<br />
+		<p>Pour accéder à cette page il est nécessaire de vous identifier :<br /></p>
 		<form method="POST" action="authentification.php">
 		<strong> Identifiant : </strong> <br /> <input type='text' name='user'>
 		</input>
@@ -26,6 +26,7 @@
 		</input>
 		<br /> <input type='submit' value='valider'></input>
 		<?php
+
 		if(isset($_POST['user'])&& isset($_POST['mdp'])){
 			$fin=1;
 			if($_POST['user']!='utilisateur1'){
@@ -40,6 +41,6 @@
 		else 
 		$fin=0; 
 		?>
-		</form></p>
+		</form>
 	</body>
 </html>
