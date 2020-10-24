@@ -1,10 +1,14 @@
 <html>
 <?php
-	session_start(); 
-	$_SESSION['url']='accueil.php';
-    echo $_SESSION['login'];
-
- ?>
+    include('connexion.php');
+    session_start(); 
+    $sess->set_page($_SESSION['url']='accueil.php');
+	if($_SESSION['login']!='ok'){
+        echo "salut";
+        header("Location:connexion.php") ;
+    }
+    else echo $sess->get_nom();
+    ?>
 <style type="text/css">
 body {
     margin: 0;
@@ -79,9 +83,8 @@ $users = $getUsers->fetchAll();
         $test->bindValue(1,$user['idredacteur'],PDO::PARAM_INT);
         $test->execute();
         $row = $test->fetch();
-        //echo $row['nom'];
-       
         
+
         if ($user['idtheme']==1){
             echo "<div>".
             "<p class=moto>".$user['titrenews']."</p>".'<br/>'
