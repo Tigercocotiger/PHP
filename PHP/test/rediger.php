@@ -1,8 +1,12 @@
 <?php
 session_start();
-$username='admin';
+$if = 2;
+if ($if==1){
+    $username='admin';
+}
+else $username='admin1';
 // Set session variables
-$_SESSION["favcolor"] = $username;
+$_SESSION["user"] = $username;
 ?>
 <html>
 <a href="test.php">Continue</a>

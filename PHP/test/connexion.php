@@ -1,6 +1,9 @@
 <html>
 <?php
 include('sess.php');
+session_start();
+$_SESSION['url'] = 'connexion.php';
+if (!isset ($_SESSION['login'])){
 $sess = new sess(null, '', null, null, null, null);
 if (isset($_POST['username']) && isset($_POST['pass'])) {
   include('conn.php');
@@ -15,21 +18,14 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
     foreach ($result as $row)
       if ($row['motdepasse'] == $password) {
         session_start();
-        $_SESSION['login'] ='ok';
-        $sess->set_connexion('ok');
-        $sess->set_utilisateur($row['email']);
-        $sess->set_nom($row['nom']);
-        $sess->set_prenom($row['prenom']);
-        $sess->set_datecompte($row['datecompte']);
-
+        $_SESSION['login'] = 'ok';
+        $_SESSION['user'] = $username;
         if ($_SESSION['url'] != '') {
-          $sess->set_page($_SESSION['url']);
           header("location: {$_SESSION['url']}");
         } else {
           header("location: accueil.php");
         }
-      }
-      else{
+      } else {
         echo '<script>alert("wrong passeword")</script>';
       }
   } else {
@@ -37,6 +33,9 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
     echo '<script>alert("wrong username")</script>';
   }
 }
+}
+else  header("Location:compte.php");
+
 
 ?>
 
@@ -48,7 +47,7 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
 
 
 <html>
-<form method="POST" action="authentification.php">
+<form method="POST" action="connexion.php">
   <div>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username">
@@ -75,16 +74,14 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
   if (!$user) {
     $_POST['username'] = '';
     echo '<script>alert("wrong username")</script>';
-  }
-  else{
+  } else {
     $result = $objPdo->query("select * from redacteur where email = '$username'");
     foreach ($result as $row)
       if ($row['motdepasse'] != $password) {
         $_POST['pass'] = '';
         echo '<script>alert("wrong passeword")</script>';
       }
-
-}
+  }
 }
 ?>
 

@@ -1,24 +1,39 @@
-<?php
-include('sess.php');
-session_start();
-$test = $_SESSION["favcolor"];
-$sess = new Sess(null, '', null, null, null, null);
-$sess = ses($test);
-$test = $sess->get_nom();
-echo $test;
-
-function ses ($username){
-    include('conn.php');
-    $result = $objPdo->query("select * from redacteur where email = '$username'");
-    foreach ($result as $row){
-        $sess = new Sess(null, '', null, null, null, null);
-        $sess->set_connexion('ok');
-        $sess->set_utilisateur($row['email']);
-        $sess->set_nom($row['nom']);
-        $sess->set_prenom($row['prenom']);
-        $sess->set_datecompte($row['datecompte']);
-        
-    }
-    return $sess;
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
 }
-?>
+</style>
+</head>
+<body>
+
+<p>Click the "Try it" button to toggle between hiding and showing the DIV element:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<div id="myDIV">
+This is my DIV element.
+</div>
+
+<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
