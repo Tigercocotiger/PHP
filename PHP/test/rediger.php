@@ -1,13 +1,29 @@
 <?php
+include('sess.php');
 session_start();
-$if = 2;
-if ($if==1){
-    $username='admin';
+$_SESSION['url'] = 'rediger.php';
+if ($_SESSION['login'] != 'ok') {
+    header("Location:connexion.php");
+
+} else {
+$test = $_SESSION["user"];
+$sess = ses($test);
+echo $sess->get_nom();
+
 }
-else $username='admin1';
-// Set session variables
-$_SESSION["user"] = $username;
+
+function ses ($username){
+    include('conn.php');
+    $result = $objPdo->query("select * from redacteur where email = '$username'");
+    foreach ($result as $row){
+        $sess = new Sess(null, '', null, null, null, null);
+        //$sess->set_connexion('ok');
+        $sess->set_utilisateur($row['email']);
+        $sess->set_nom($row['nom']);
+        $sess->set_prenom($row['prenom']);
+        $sess->set_datecompte($row['datecompte']);
+        
+    }
+    return $sess;
+}
 ?>
-<html>
-<a href="test.php">Continue</a>
-</html>

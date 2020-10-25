@@ -5,7 +5,7 @@ function ses ($username){
     $result = $objPdo->query("select * from redacteur where email = '$username'");
     foreach ($result as $row){
         $sess = new Sess(null, '', null, null, null, null);
-        $sess->set_connexion('ok');
+        //$sess->set_connexion('ok');
         $sess->set_utilisateur($row['email']);
         $sess->set_nom($row['nom']);
         $sess->set_prenom($row['prenom']);

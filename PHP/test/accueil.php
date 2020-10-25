@@ -4,64 +4,7 @@
         return confirm("Are you sure you want to logout?");
     }
 </script>
-<style type="text/css">
-    body {
-        margin: 0;
 
-    }
-
-    div {
-        width: 50%;
-        border: 1px solid #333;
-        box-shadow: 8px 8px 5px #444;
-        padding: 10%;
-        background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
-        margin: 0 auto;
-        margin-top: 3%;
-        text-align: center;
-        border-radius: 50px;
-    }
-
-    ul {
-
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-        position: -webkit-sticky;
-        /* Safari */
-        position: sticky;
-        top: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-    }
-
-    li {
-        float: left;
-        text-align: center;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover {
-        background-color: #111;
-    }
-
-    .active {
-        background-color: #4CAF50;
-    }
-
-    .lol p {
-        opacity: 1;
-    }
-</style>
 <?php
 include('conn.php');
 session_start();

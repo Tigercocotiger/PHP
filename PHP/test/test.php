@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-#myDIV {
-  width: 100%;
-  padding: 50px 0;
-  text-align: center;
-  background-color: lightblue;
-  margin-top: 20px;
-}
-</style>
-</head>
-<body>
+<form method="POST" action="test.php">
+  <label for="theme">Choisir un thème:</label>
+  <select name="theme" id="pet-select">
+    <option value="0">--Please choose an option--</option>
+    <?php
 
-<p>Click the "Try it" button to toggle between hiding and showing the DIV element:</p>
+    include_once 'conn.php';
+    $result = $objPdo->query("select * from theme ");
+    foreach ($result as $row)
+      echo "<option value=" . $row['idtheme'] . ">" . $row['description'] . "</option>";
 
-<button onclick="myFunction()">Try it</button>
+    ?>
+  </select>
+  <input type="submit" value="Envoyer">
+</form>
 
-<div id="myDIV">
-This is my DIV element.
-</div>
 
-<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
-
-<script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+<?php
+if ($_POST) {
+  $test = $_POST['theme'];
+  if ($test == 0) {
+    echo "<script>alert('Veuillez selectionnez un thème')</script>";
   } else {
-    x.style.display = "none";
+    include_once 'conn.php';
+    $result = $objPdo->query("select * from theme where idtheme=$test ");
+    foreach ($result as $row)
+    echo $row['description'];
   }
-}
-</script>
-
-</body>
-</html>
+} ?>

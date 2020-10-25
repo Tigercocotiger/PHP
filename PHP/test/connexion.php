@@ -59,9 +59,7 @@ else  header("Location:compte.php");
   </div>
   <input type="submit" name="submit" value="click">
 </form>
-
-
-
+<button type="button" onclick="location.href = 'newcompte.php'">Pas encore inscris ?</button>
 
 <?php
 if (isset($_POST['username']) && isset($_POST['pass'])) {
