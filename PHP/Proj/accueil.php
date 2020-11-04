@@ -1,7 +1,7 @@
 <html>
 <script>
     function ConfirmLogout() {
-        return confirm("Are you sure you want to logout?");
+        return confirm("Are you sure you want to logout?testtest");
     }
 </script>
 
