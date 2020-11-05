@@ -7,9 +7,10 @@ class Sess {
   public $datecompte;
 
   // Methods
-  function __construct(/*$connexion,$page,*/$utilisateur,$nom,$prenom,$datecompte) {
+  function __construct(/*$connexion,$page,*/$id,$utilisateur,$nom,$prenom,$datecompte) {
     /*$this->connexion = $connexion;
     $this->page = $page;*/
+    $this->id = $id;
     $this->utilisateur = $utilisateur;
     $this->nom = $nom;
     $this->prenom = $prenom;
@@ -26,6 +27,9 @@ class Sess {
     $this->page = $page;
   }*/
 
+  function set_id($id){
+    $this->id = $id;
+  }
   function set_utilisateur($utilisateur) {
     $this->utilisateur = $utilisateur;
   }
@@ -40,6 +44,10 @@ class Sess {
   }
 
   // Getters
+  function get_id(){
+    return $this->id;
+  }
+
   function get_connexion() {
     return $this->connexion;
   }
