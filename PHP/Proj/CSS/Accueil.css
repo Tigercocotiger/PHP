@@ -234,6 +234,17 @@ body {
     padding-bottom: 10vh;
 }
 
+.divlol {
+    /* The image used */
+    background-image: url("../Images/Fondlol.jpg");
+    /* Center and scale the image nicely */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 10vh;
+}
+
 .titre {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 10vh;
@@ -277,6 +288,7 @@ li a:hover {
 
 .lol {
     padding-top: 1vh;
+    padding-bottom: 2vh;
     font-size: 3vh;
     color: #FFFFFF;
     text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
@@ -286,6 +298,7 @@ li a:hover {
 
 .moto {
     padding-top: 1vh;
+    padding-bottom: 2vh;
     font-size: 3vh;
     color: #FFFFFF;
     text-shadow: 0 -1px 4px #FFF, 0 -2px 10px rgb(0, 255, 255), 0 -10px 20px #0059ff, 0 -18px 40px rgb(68, 0, 255);

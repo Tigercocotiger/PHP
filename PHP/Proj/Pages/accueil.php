@@ -20,7 +20,7 @@
             <div class="content">
                 <h2 class="title">Les motos</h2>
                 <p class="copy">Cliquez si-dessous pour voir toute nos actualitées concernant les motos</p>
-                <button class="btn">Voir !</button>
+                <button class="btn" onclick="window.location.href='lol.php';">Voir !</button>
             </div>
         </div>
     </main>
@@ -39,6 +39,9 @@
         echo '
     <ul>
     <li><a class="active" href="accueil.php">Accueil</a></li>
+    <li><a href="lol.php">League of legends</a></li>
+    <li><a href="moto.php">Motos</a></li>
+    <li><a href="rediger.php">Rediger</a></li>
     <li><a href="compte.php">Compte</a></li>
     <li><a href="deconnexion.php" onclick="return ConfirmLogout()">Deconnexion</a></li>
     </ul>';
@@ -46,7 +49,7 @@
 <ul>
 <li><a class="active" href="accueil.php">Accueil</a></li>
 <li><a href="lol.php">League of legends</a></li>
-<li><a href="lol.php">Motos</a></li>
+<li><a href="moto.php">Motos</a></li>
 <li  class="connexion"><a href="connexion.php">Connexion</a></li>
 </ul>';
     $getUsers = $objPdo->prepare("SELECT * FROM news ORDER BY datenews DESC");
@@ -70,7 +73,7 @@
                 "<p class=lol>" . $user['titrenews'] . "</p>" .
                 "<p class=nom>" . "Publié par : " . $row['nom'] . "  " . $row['prenom'] . "</p>" .
                 "<p class=datenews>" . "Le : " . $user['datenews'] . "</p>" .
-                "<p class=textenews>" . test . "</p>" .
+                "<p class=textenews>" . $test . "</p>" .
                 "</div>";
         }
     }
