@@ -28,7 +28,6 @@
       </div>
       <div class="user-box">
 
-      <label for="email"><b>Email</b></label>
       <input type="text" name="email" value="<?php if (isset($_POST['email']) && testmail($_POST['email'])) {
                                                                           echo htmlentities($_POST['email']);
                                                                         } ?>" required>
