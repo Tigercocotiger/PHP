@@ -4,7 +4,6 @@
         return confirm("Are you sure you want to logout?testtest");
     }
 </script>
-
 <?php
 include('conn.php');
 session_start();
@@ -52,6 +51,5 @@ foreach ($users as $user) {
             "</div>";
     }
 }
-?>
-
+?>        
 </html>
