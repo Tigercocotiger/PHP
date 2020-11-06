@@ -25,12 +25,21 @@ if ($_SESSION['login'] != 'ok') {
 } else {
 $test = $_SESSION["user"];
 $sess = ses($test);
+echo("<br>");
 echo $sess->get_nom();
+echo("<br>");
+echo $sess->get_prenom();
+echo("<br>");
+echo $sess->get_utilisateur();
+echo("<br>");
+
 
 }
 ?>
 
 
 <html>
+<link rel="stylesheet" media="screen" type="text/css" href="../CSS/compteCSS.css"/>
+
 <a href="deconnexion.php">Continue</a>
 </html>
