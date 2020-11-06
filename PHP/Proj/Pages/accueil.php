@@ -7,7 +7,7 @@
     }
 </script>
 <div class="jaune">
-    <h1 class="titre">Salut le frr</h1>
+    <h1 class="titre">Newsoo</h1>
     <main class="page-content">
         <div class="card">
             <div class="content">
@@ -43,7 +43,7 @@
 <li><a class="active" href="accueil.php">Accueil</a></li>
 <li><a href="lol.php">League of legends</a></li>
 <li><a href="lol.php">Motos</a></li>
-<li style="float:right"><a href="#about">Connexion</a></li>
+<li  class="connexion"><a href="#about">Connexion</a></li>
 </ul>';
     $getUsers = $objPdo->prepare("SELECT * FROM news ORDER BY datenews DESC");
     $getUsers->execute();

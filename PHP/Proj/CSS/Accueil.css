@@ -21,9 +21,10 @@ body {
     grid-gap: 1rem;
     margin: 0 auto;
     font-family: var(--font-sans);
-    padding-top: 10vh;
+    padding-top: 5vh;
     padding-left: 10vh;
     padding-right: 10vh;
+    max-height: 50vh;
 }
 
 @media (min-width: 600px) {
@@ -216,6 +217,7 @@ body {
     /* Full height */
     height: 120%;
     /* Center and scale the image nicely */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -223,9 +225,7 @@ body {
 
 .rouge {
     /* The image used */
-    background-image: url("../Images/fond2.png");
-    /* Full height */
-    height: 120%;
+    background-image: url("../Images/fond.jpg");
     /* Center and scale the image nicely */
     background-attachment: fixed;
     background-position: center;
@@ -237,19 +237,20 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 10vh;
     color: white;
+    letter-spacing: .1em;
+    text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
     text-align: center;
-    padding-top: 3vh;
+    padding-top: 8vh;
 }
 
 ul {
-    position: sticky;
+    position: fixed;
     top: 0;
     background-color: transparent;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
 
 li {
@@ -257,6 +258,7 @@ li {
 }
 
 li a {
+    font-size: 2vh;
     display: inline-block;
     color: white;
     text-align: center;
@@ -285,9 +287,14 @@ li a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
-    width: 50vh;
+    width: 50%;
+    height: 30%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    border: 4px ridge #383838;
+    border-radius: 31px;
 }
 
 .nom {
@@ -297,4 +304,11 @@ li a:hover {
 
 .datenews {
     margin: 0;
+}
+
+.textenews {
+    padding-left: 10%;
+    padding-right: 10%;
+    color: wheat;
+    font-style: italic;
 }
