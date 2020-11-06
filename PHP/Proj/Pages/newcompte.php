@@ -1,42 +1,63 @@
 <html>
 </head>
+<link rel="stylesheet" media="screen" type="text/css" href="../CSS/newcompteCSS.css"/>
 
 
 <body>
+<div class="login-box">
+
   <form method="POST" action="newcompte.php">
-    <div class="container">
-      <h1>Register</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-      <label for="nom"><b>Nom</b></label>
-      <input type="text" placeholder="Enter nom" name="nom" value="<?php if (isset($_POST['nom'])) {
+    
+      <h2>Register</h2>
+    
+      
+      <div class="user-box">
+
+        <input type="text" name="nom" value="<?php if (isset($_POST['nom'])) {
                                                                       echo htmlentities($_POST['nom']);
                                                                     } ?>" required>
+        <label for="nom"><b>Nom</b></label>
 
-      <label for="prenom"><b>Prénom</b></label>
-      <input type="text" placeholder="Enter prénom" name="prenom" value="<?php if (isset($_POST['prenom'])) {
+      </div>
+      <div class="user-box">
+
+      <input type="text" name="prenom" value="<?php if (isset($_POST['prenom'])) {
                                                                             echo htmlentities($_POST['prenom']);
                                                                           } ?>" required>
+      <label for="prenom"><b>Prénom</b></label>
+      </div>
+      <div class="user-box">
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" value="<?php if (isset($_POST['email']) && testmail($_POST['email'])) {
+      <input type="text" name="email" value="<?php if (isset($_POST['email']) && testmail($_POST['email'])) {
                                                                           echo htmlentities($_POST['email']);
                                                                         } ?>" required>
+      <label for="prenom"><b>Email</b></label>
 
+      </div>
+      <div class="user-box">
+
+      <input type="password" name="psw" id="psw" required>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
+      </div>
+      <div class="user-box">
+
+      <input type="password" name="psw-repeat" required>
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <hr>
-      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
+      </div>
       <button type="submit" class="registerbtn">Register</button>
-    </div>
 
-    <div class="container signin">
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      
+    
+
+     <div class="container signin">
       <p>Already have an account? <a href="#">Sign in</a>.</p>
     </div>
+
+
     <?php
 
     if ($_POST) {
@@ -105,7 +126,7 @@
 
     ?>
   </form>
-
+  </div>
 </body>
 
 </html>

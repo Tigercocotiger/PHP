@@ -27,8 +27,7 @@
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background: linear-gradient(#141e30, #76abe7);
-  }
+    background: linear-gradient(#e66465, #9198e5);  }
   
   .login-box {
     position: absolute;
@@ -48,6 +47,9 @@
     padding: 0;
     color: #fff;
     text-align: center;
+  }
+  p{
+      color:#fff;
   }
   
   .login-box .user-box {
@@ -80,11 +82,11 @@
   .login-box .user-box input[type=password]:focus ~ label{
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: #e39494;
     font-size: 12px;
   }
   
-  .login-box form input[type=submit] {
+  .login-box form button[type=submit] {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -99,17 +101,13 @@
   }
   
   .login-box a:hover {
-    background: #03e9f4;
+    color: #e39494;
+  }
+  .login-box a {
     color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
   }
    
-  .login-box input[type=submit] {
-    left: 30%;
+  .login-box button[type=submit] {
     background: #141e30;
     color: #fff;
     align: center;
@@ -118,12 +116,12 @@
   }
   
   
-  .login-box input[type=submit]:hover {
+  .login-box button[type=submit]:hover {
     background: #141e30;
-    color: #fff;
+    color: #e39494;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4;
+    box-shadow: 0 0 5px #e39494,
+                0 0 25px #e39494;
   }
   
   .login-box button{
