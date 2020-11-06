@@ -42,7 +42,7 @@ else  header("Location:compte.php");
 
 
 
-<html>
+
 
 <div class=navbar>
   <a href="accueil.php">Accueil</a>
@@ -50,14 +50,14 @@ else  header("Location:compte.php");
 
 
 </div>
-
+<html>
 <link rel="stylesheet" media="screen" type="text/css" href="../CSS/connexionCSS.css"/>
 
 <div class="login-box">
   <h2>Login</h2>
   <form method="POST" action="connexion.php">
     <div class="user-box">
-     <input type="text" id="username" name="">
+     <input type="text" id="username" name="username">
      <label for="username">Username:</label>
     </div>
     <div class="user-box">
