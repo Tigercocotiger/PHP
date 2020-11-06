@@ -23,6 +23,7 @@
   html {
     height: 100%;
   }
+
   body {
     margin:0;
     padding:0;
@@ -48,6 +49,7 @@
     color: #fff;
     text-align: center;
   }
+
   p{
       color:#fff;
       font-size: 12;
@@ -68,6 +70,7 @@
     outline: none;
     background: transparent;
   }
+
   .login-box .user-box label {
     position: absolute;
     top:0;
@@ -104,6 +107,7 @@
   .login-box a:hover {
     color: #e39494;
   }
+
   .login-box a {
     color: #fff;
   }
@@ -115,7 +119,6 @@
     border-radius: 5px;
     box-shadow: 0 0 5px #03e9f4;
   }
-  
   
   .login-box button[type=submit]:hover {
     background: #141e30;
@@ -133,7 +136,7 @@
     box-shadow: 0 0 5px #03e9f4;
     
   
-     }
+    }
   
   .login-box span {
     position: absolute;

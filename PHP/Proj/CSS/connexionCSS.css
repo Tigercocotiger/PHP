@@ -76,8 +76,10 @@
     transition: .5s;
   }
   
-  .login-box .user-box input[type=text]:focus ~ label, 
-  .login-box .user-box input[type=password]:focus ~ label{
+  .login-box .user-box input[type=text]:focus ~ label,   .login-box .user-box input[type=text]:valid ~ label, 
+
+  .login-box .user-box input[type=password]:focus ~ label,  .login-box .user-box input[type=password]:valid ~ label{
+
     top: -20px;
     left: 0;
     color: #03e9f4;

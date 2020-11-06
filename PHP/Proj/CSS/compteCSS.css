@@ -1,5 +1,4 @@
 @charset "utf-8";
 html {
-background-image: url("../Images/image_fond_compte.jpg");
+    background: linear-gradient(#e66465, #9198e5);  }
 
-}
