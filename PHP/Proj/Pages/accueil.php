@@ -26,6 +26,10 @@
     </main>
 </div>
 <div class="rouge">
+    <p class="test">Nos news</p>
+    <p class="info">Ci dessous vous retrouverez les news postées par nos utilisateurs
+        <br>Si vous voulez en poster à votre tour veuillez vos connecter
+    </p>
     <?php
     header('content-type: text/html; charset=utf-8');
     include('conn.php');
@@ -43,7 +47,7 @@
 <li><a class="active" href="accueil.php">Accueil</a></li>
 <li><a href="lol.php">League of legends</a></li>
 <li><a href="lol.php">Motos</a></li>
-<li  class="connexion"><a href="#about">Connexion</a></li>
+<li  class="connexion"><a href="connexion.php">Connexion</a></li>
 </ul>';
     $getUsers = $objPdo->prepare("SELECT * FROM news ORDER BY datenews DESC");
     $getUsers->execute();
@@ -53,22 +57,24 @@
         $test->bindValue(1, $user['idredacteur'], PDO::PARAM_INT);
         $test->execute();
         $row = $test->fetch();
+        $test=utf8_encode($user['textenews']);
         if ($user['idtheme'] == 1) {
             echo "<div class='divtxt'>" .
                 "<p class=moto>" . $user['titrenews'] . "</p>" .
-                "<p class=nom>" . $row['nom'] .$row['prenom'] ."</p>" .
-                "<p class=datenews>" . $user['datenews'] . "</p>" .
+                "<p class=nom>" . "Publié par : " . $row['nom'] . "  " . $row['prenom'] . "</p>" .
+                "<p class=datenews>" . "Le : " . $user['datenews'] . "</p>" .
                 "<p class=textenews>" . $user['textenews'] . "</p>" .
                 "</div>";
         } else {
             echo "<div class='divtxt'>" .
                 "<p class=lol>" . $user['titrenews'] . "</p>" .
-                "<p class=nom>" ."Publié par : ". $row['nom'] ."  ".$row['prenom'] ."</p>" .
-                "<p class=datenews>" ."Le : ". $user['datenews'] . "</p>" .
-                "<p class=textenews>" . $user['textenews'] . "</p>" .
+                "<p class=nom>" . "Publié par : " . $row['nom'] . "  " . $row['prenom'] . "</p>" .
+                "<p class=datenews>" . "Le : " . $user['datenews'] . "</p>" .
+                "<p class=textenews>" . test . "</p>" .
                 "</div>";
         }
     }
     ?>
+    <p class="footer"> Made by Marco Simon et Robin Fröliger </p>
 </div>
 </html>
