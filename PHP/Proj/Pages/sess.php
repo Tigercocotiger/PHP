@@ -59,6 +59,14 @@ class Sess {
   function get_nom() {
     return $this->nom;
   }
+
+  function get_prenom() {
+    return $this->prenom;
+  }
+
+  function get_utilisateur() {
+    return $this->utilisateur;
+  }
   
 }
 
