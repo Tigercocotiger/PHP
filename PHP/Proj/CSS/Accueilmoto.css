@@ -1,6 +1,6 @@
 html,
 body {
-    height: 100%;
+    height: auto;
     margin: 0;
 }
 
@@ -14,7 +14,7 @@ body {
     background-size: cover;
     padding-bottom: 10vh;
     margin-bottom: 5%;
-    height: 300%;
+    height: auto;
 }
 
 .titre {
