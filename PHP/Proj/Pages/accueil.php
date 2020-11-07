@@ -63,17 +63,17 @@
         $test=utf8_encode($user['textenews']);
         if ($user['idtheme'] == 1) {
             echo "<div class='divtxt'>" .
-                "<p class=moto>" . $user['titrenews'] . "</p>" .
-                "<p class=nom>" . "Publié par : " . $row['nom'] . "  " . $row['prenom'] . "</p>" .
-                "<p class=datenews>" . "Le : " . $user['datenews'] . "</p>" .
-                "<p class=textenews>" . $user['textenews'] . "</p>" .
-                "</div>";
+            "<p class=moto>" . utf8_encode($user['titrenews']) . "</p>" .
+            "<p class=nom>" . "Publié par : " . utf8_encode($row['nom']) . "  " . utf8_encode($row['prenom']) . "</p>" .
+            "<p class=datenews>" . "Le : " . utf8_encode($user['datenews']) . "</p>" .
+            "<p class=textenews>" . utf8_encode($user['textenews']) . "</p>" .
+            "</div>";
         } else {
             echo "<div class='divtxt'>" .
-                "<p class=lol>" . $user['titrenews'] . "</p>" .
-                "<p class=nom>" . "Publié par : " . $row['nom'] . "  " . $row['prenom'] . "</p>" .
-                "<p class=datenews>" . "Le : " . $user['datenews'] . "</p>" .
-                "<p class=textenews>" . $test . "</p>" .
+                "<p class=lol>" . utf8_encode($user['titrenews']) . "</p>" .
+                "<p class=nom>" . "Publié par : " . utf8_encode($row['nom']) . "  " . utf8_encode($row['prenom']) . "</p>" .
+                "<p class=datenews>" . "Le : " . utf8_encode($user['datenews']) . "</p>" .
+                "<p class=textenews>" . utf8_encode($user['textenews']) . "</p>" .
                 "</div>";
         }
     }
