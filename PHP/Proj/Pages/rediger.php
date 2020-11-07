@@ -1,5 +1,10 @@
 <html>
+<<<<<<< HEAD
 <meta charset="utf8">
+=======
+<link rel="stylesheet" media="screen" type="text/css" href="../CSS/rediger.css"/>
+
+>>>>>>> ce4b0519f99815209f8f32d948170814736e5075
 
 <?php
 include('sess.php');
@@ -10,9 +15,12 @@ if ($_SESSION['login'] != 'ok') {
 }
 ?>
 
+<div class="login-box">
 
 
 <form method="POST" action="rediger.php">
+    <div class="user-box">
+    <h2>Rediger</h2>
     <p>Selectioner une catégorie</p>
     <select name="categ" id="categ">
         <?php
@@ -23,15 +31,23 @@ if ($_SESSION['login'] != 'ok') {
         }
         ?>
     </select>
+    </div>
+
     <br>
-    <p>Titre de votre news</p>
+    <div class="user-box">
     <input type="text" id="titrenew" name="titrenew" />
+    <label>Titre de votre news</label>
+    </div>
+
     <br>
+    <div class="user-box">
+
     <p>Texte de votre news</p>
     <textarea style="resize:none" id="textnews" name="textnews" rows="8" cols="40"></textarea>
     <button type="submit" class="registerbtn">Poster</button>
+    </div>
 </form>
-
+</div>
 </html>
 
 <?php
