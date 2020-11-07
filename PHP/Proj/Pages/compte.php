@@ -73,15 +73,13 @@ foreach ($result as $row) {
         echo "<div class='divtxt'>" .
         "<p class=lol>" . utf8_encode($row['titrenews']) . "</p>" .
         "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
-        "<p class=textenews>" . utf8_encode($row['textenews']) . "</p>" .
-        "<a href=supprimer.php?id=".$row['idnews']."> Supprimer </a>".
+        "<p class=textenews>" . utf8_encode($row['textenews']) ."<a href=supprimer.php?id=".$row['idnews']."> Supprimer (Cette action est instantanée et ireversible)</a>". "</p>" .
         "</div>";
     } else {
         echo "<div class='divtxt'>" .
         "<p class=moto>" . utf8_encode($row['titrenews']) . "</p>" .
         "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
-        "<p class=textenews>" . utf8_encode($row['textenews']) . "</p>" .
-        "<a href=supprimer.php?id=".$row['idnews']."> Supprimer (Cette action est instantanée et ireversible)</a>".
+        "<p class=textenews>" . utf8_encode($row['textenews'])  ."<a href=supprimer.php?id=".$row['idnews']."> Supprimer (Cette action est instantanée et ireversible)</a>". "</p>" .
         "</div>";
     }
 

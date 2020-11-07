@@ -28,6 +28,12 @@ html {
     border-radius: 31px;
 }
 
+.divtxt a {
+    text-decoration: underline;
+    float: right;
+    color: wheat;
+}
+
 .nom {
     color: #FFFFFF;
     margin: 0;
