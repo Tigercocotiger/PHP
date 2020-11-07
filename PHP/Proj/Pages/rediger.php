@@ -1,11 +1,11 @@
 <html>
-<<<<<<< HEAD
 <meta charset="utf8">
-=======
 <link rel="stylesheet" media="screen" type="text/css" href="../CSS/rediger.css"/>
-
->>>>>>> ce4b0519f99815209f8f32d948170814736e5075
-
+<script>
+    function ConfirmLogout() {
+        return confirm("Are you sure you want to logout?");
+    }
+</script>
 <?php
 include('sess.php');
 session_start();
@@ -14,10 +14,16 @@ if ($_SESSION['login'] != 'ok') {
     header("Location:connexion.php");
 }
 ?>
-
+<ul>
+    <li><a href="accueil.php">Accueil</a></li>
+    <li><a href="lol.php">League of legends</a></li>
+    <li><a href="moto.php">Motos</a></li>
+    <li><a href="rediger.php" class="active" >Rediger</a></li>
+    <li><a  href="compte.php">Compte</a></li>
+    <li><a href="deconnexion.php" onclick="return ConfirmLogout()">Deconnexion</a></li>
+    
+</ul>
 <div class="login-box">
-
-
 <form method="POST" action="rediger.php">
     <div class="user-box">
     <h2>Rediger</h2>
@@ -54,21 +60,11 @@ if ($_SESSION['login'] != 'ok') {
 if ($_POST) {
     $today = date("Y-n-j");
     $_POST['categ'] = trim(htmlentities($_POST['categ']));
-    $_POST['titrenew'] = trim(htmlentities($_POST['titrenew']));
-    $_POST['textnews'] = trim(htmlentities($_POST['textnews']));
-    $_POST['textnews'] = utf8_encode($_POST['textnews']);
-    echo $_POST['categ'];
-    echo '<br>';
-    echo $today;
+    $_POST['titrenew'] = utf8_encode(trim(htmlentities($_POST['titrenew'])));
+    $_POST['textnews'] = utf8_encode(trim(htmlentities($_POST['textnews'])));
+
     $test = $_SESSION["user"];
     $sess = ses($test);
-    echo '<br>';
-    echo $sess->get_id();
-    echo '<br>';
-    echo $_POST['titrenew'];
-    echo '<br>';
-    echo $_POST['textnews'];
-    echo '<br>';
     $insert_stmt = $objPdo->prepare("INSERT INTO news (idtheme,titrenews,datenews,textenews,idredacteur) VALUES(:idtheme,:titrenews,:datenews,:textenews,:idredacteur)");
     $insert_stmt->bindValue('idtheme', $_POST['categ'], PDO::PARAM_INT);
     $insert_stmt->bindValue('titrenews', $_POST['titrenew'], PDO::PARAM_STR);
