@@ -25,18 +25,25 @@ if ($_SESSION['login'] != 'ok') {
 </ul>
 <div class="login-box">
 <form method="POST" action="rediger.php">
-    <div class="user-box">
     <h2>Rediger</h2>
-    <p>Selectioner une catégorie</p>
-    <select name="categ" id="categ">
-        <?php
-        include('conn.php');
-        $result = $objPdo->query("select * from theme");
-        foreach ($result as $row) {
-            echo "<option value='" . $row['idtheme'] . "'>" . $row['description'] . "</option>";
-        }
-        ?>
-    </select>
+    <div class="user-box">
+
+        <p>Selectioner une catégorie</p>
+
+        <div class="box">
+
+            <select name="categ" id="categ">
+                <?php
+                include('conn.php');
+                $result = $objPdo->query("select * from theme");
+                foreach ($result as $row) {
+                    echo "<option value='" . $row['idtheme'] . "'>" . $row['description'] . "</option>";
+                }
+                ?>
+            </select>
+
+        </div>
+
     </div>
 
     <br>
