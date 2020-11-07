@@ -9,7 +9,6 @@
 <?php
 include('sess.php');
 session_start();
-$_SESSION['url'] = 'rediger.php';
 if ($_SESSION['login'] != 'ok') {
     header("Location:connexion.php");
 }
@@ -65,6 +64,7 @@ if ($_SESSION['login'] != 'ok') {
 
 <?php
 if ($_POST) {
+    session_start();
     $today = date("Y-n-j");
     $_POST['categ'] = trim(htmlentities($_POST['categ']));
     $_POST['titrenew'] = utf8_encode(trim(htmlentities($_POST['titrenew'])));
@@ -79,6 +79,9 @@ if ($_POST) {
     $insert_stmt->bindValue('textenews', $_POST['textnews'], PDO::PARAM_STR);
     $insert_stmt->bindValue('idredacteur', $sess->get_id(), PDO::PARAM_INT);
     $insert_stmt->execute();
+    $page=$_SESSION['url'];
+    header("location:$page");
+    $_POST = array();
 }
 ?>
 

@@ -13,14 +13,14 @@
             <div class="content">
                 <h2 class="title">League of legends</h2>
                 <p class="copy">Cliquez si-dessous pour voir toute nos actualitées concernant league of legends</p>
-                <button class="btn">Voir</button>
+                <button class="btn" onclick="window.location.href='lol.php';" >Voir</button>
             </div>
         </div>
         <div class="card">
             <div class="content">
                 <h2 class="title">Les motos</h2>
                 <p class="copy">Cliquez si-dessous pour voir toute nos actualitées concernant les motos</p>
-                <button class="btn" onclick="window.location.href='lol.php';">Voir !</button>
+                <button class="btn" onclick="window.location.href='moto.php';">Voir !</button>
             </div>
         </div>
     </main>

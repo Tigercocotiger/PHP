@@ -1,16 +1,15 @@
 <html>
 <link rel="stylesheet" media="screen" type="text/css" href="../CSS/connexionCSS.css" />
-<ul >
-<li><a  href="accueil.php">Accueil</a></li>
-<li><a href="lol.php">League of legends</a></li>
-<li><a  href="moto.php">Motos</a></li>
-<li  class="connexion active"><a href="connexion.php">Connexion</a></li>
+<ul>
+  <li><a href="accueil.php">Accueil</a></li>
+  <li><a href="lol.php">League of legends</a></li>
+  <li><a href="moto.php">Motos</a></li>
+  <li class="connexion active"><a href="connexion.php">Connexion</a></li>
 </ul>
 </div>
 <?php
 include('sess.php');
 session_start();
-$_SESSION['url'] = 'connexion.php';
 if (!isset($_SESSION['login'])) {
   $sess = new sess(null, '', null, null, null, null);
   if (isset($_POST['username']) && isset($_POST['pass'])) {
@@ -41,7 +40,10 @@ if (!isset($_SESSION['login'])) {
       echo '<script>alert("wrong username")</script>';
     }
   }
-} else  header("Location:compte.php");
+} else {
+  $page = $_SESSION['url'];
+  header("location:$page");
+}
 ?>
 <div class="login-box">
   <h2>Login</h2>

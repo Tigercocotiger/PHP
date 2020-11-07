@@ -58,6 +58,54 @@ html {
     padding-left: 10%;
 }
 
+.users {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 70%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    border: 4px ridge #383838;
+    border-radius: 31px;
+}
+
+.customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.customers td,
+.customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.customers tr:nth-child(even) {
+    background-color: #000000;
+}
+
+.customers tr:nth-child(even):hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.customers tr:hover {
+    background-color: #ddd;
+}
+
+.customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
 ul {
     position: fixed;
     top: 0;

@@ -4,7 +4,8 @@
     function ConfirmLogout() {
         return confirm("Are you sure you want to logout?");
     }
-    function ConfirmDelete(){
+
+    function ConfirmDelete() {
         return confirm('Are you sure you want to delete this ?')
     }
 </script>
@@ -50,7 +51,7 @@ if ($_SESSION['login'] != 'ok') {
     <li><a href="rediger.php">Rediger</a></li>
     <li><a class="active" href="compte.php">Compte</a></li>
     <li><a href="deconnexion.php" onclick="return ConfirmLogout()">Deconnexion</a></li>
-    
+
 </ul>
 
 <h1 class="post">Vos post</h1>
@@ -66,23 +67,35 @@ include('conn.php');
 $test = $_SESSION["user"];
 $sess = ses($test);
 $idredacteur = $sess->get_id();
+if ($idredacteur == 1 || $idredacteur == 2) {
+    $result = $objPdo->query('select * FROM redacteur');
+    echo "<div class='users'><table class='customers'> <thead> <tr> <th>Identifiant</th> <th>Nom</th> <th>Prenom</th> <th>Datecompte</th></tr> </thead>";
+    foreach ($result as $row) {
+     echo "<tr><td>" . $row['idredacteur'] . "</td> 
+	<td>" . utf8_encode($row['nom']). "</td> 
+	<td>" . utf8_encode($row['prenom']) . "</td> 
+	<td>" . $row['datecompte'] . "</td> 
+	<td> <a href=modifier.php?id=" . $row['idredacteur'] . "> Modifier </a> </td>
+	<td> <a href=supprimer.php?id=" . $row['idredacteur'] . "> Supprimer </a> </td></tr>";
+    }
+    echo "</table> </div><br/>";
+}
 $_SESSION['url'] = 'moto.php';
 $result = $objPdo->query("select * from news where idredacteur = '$idredacteur'");
 foreach ($result as $row) {
     if ($row['idtheme'] == 1) {
         echo "<div class='divtxt'>" .
-        "<p class=lol>" . utf8_encode($row['titrenews']) . "</p>" .
-        "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
-        "<p class=textenews>" . utf8_encode($row['textenews']) ."<a href=supprimer.php?id=".$row['idnews']."> Supprimer (Cette action est instantanée et ireversible)</a>". "</p>" .
-        "</div>";
+            "<p class=lol>" . utf8_encode($row['titrenews']) . "</p>" .
+            "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
+            "<p class=textenews>" . utf8_encode($row['textenews']) . "<a href=supprimer.php?id=" . $row['idnews'] . "> Supprimer (Cette action est instantanée et ireversible)</a>" . "</p>" .
+            "</div>";
     } else {
         echo "<div class='divtxt'>" .
-        "<p class=moto>" . utf8_encode($row['titrenews']) . "</p>" .
-        "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
-        "<p class=textenews>" . utf8_encode($row['textenews'])  ."<a href=supprimer.php?id=".$row['idnews']."> Supprimer (Cette action est instantanée et ireversible)</a>". "</p>" .
-        "</div>";
+            "<p class=moto>" . utf8_encode($row['titrenews']) . "</p>" .
+            "<p class=datenews>" . "Le : " . utf8_encode($row['datenews']) . "</p>" .
+            "<p class=textenews>" . utf8_encode($row['textenews'])  . "<a href=supprimer.php?id=" . $row['idnews'] . "> Supprimer (Cette action est instantanée et ireversible)</a>" . "</p>" .
+            "</div>";
     }
-
 }
 ?>
 <p class="footer"> Made by Marco Simon et Robin Fröliger </p>
