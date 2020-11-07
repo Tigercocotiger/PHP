@@ -17,7 +17,7 @@
     header('content-type: text/html; charset=utf-8');
     include('conn.php');
     session_start();
-    $_SESSION['url'] = 'accueil.php';
+    $_SESSION['url'] = 'lol.php';
     if (isset($_SESSION['login']) and $_SESSION['login'] == 'ok') {
         echo '
     <ul>

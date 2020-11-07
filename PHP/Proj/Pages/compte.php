@@ -63,15 +63,27 @@ if ($idredacteur == 1 || $idredacteur == 2) {
     $result = $objPdo->query('select * FROM redacteur where idredacteur >2');
     echo "<div class='users'><table class='customers'> <thead> <tr> <th>Identifiant</th> <th>Nom</th> <th>Prenom</th> <th>Datecompte</th></tr> </thead>";
     foreach ($result as $row) {
-     echo "<tr><td>" . $row['idredacteur'] . "</td> 
-	<td>" . utf8_encode($row['nom']). "</td> 
+        echo "<tr><td>" . $row['idredacteur'] . "</td> 
+	<td>" . utf8_encode($row['nom']) . "</td> 
 	<td>" . utf8_encode($row['prenom']) . "</td> 
-	<td>" . $row['datecompte'] . "</td> 
-	<td> <a href=modifier.php?id=" . $row['idredacteur'] . "> Modifier </a> </td>
-	<td> <a href=supprimer.php?id=" . $row['idredacteur'] . "> Supprimer </a> </td></tr>";
+	<td>" . $row['datecompte'] . "</td> ";  
     }
     echo "</table> </div><br/>";
-}?>
+    echo "<h1 class='post'>Les articles du sites</h1>";
+    $result = $objPdo->query('select * FROM news');
+    echo "<div class='users'><table class='customers'> <thead> <tr> <th>Id news</th> <th>Id thème</th> <th>Titre News</th> <th>Date news</th> <th> Id redacteur </th></tr> </thead>";
+    foreach ($result as $row) {
+        echo "<tr><td>" . $row['idnews'] . "</td> 
+       <td>" . $row['idtheme'] . "</td> 
+       <td>" . utf8_encode($row['titrenews']) . "</td> 
+       <td>" . $row['datenews'] . "</td> 
+       <td>" . $row['idredacteur'] . "</td> 
+       <td> <a href=supprimer.php?id=" . $row['idnews'] . "> Supprimer </a> </td></tr>";
+        
+    }
+    echo "</table> </div><br/>";
+}
+?>
 <h1 class="post">Vos post</h1>
 <div class="information">
     <p class="info">Ci dessous vous retrouverez les news postées par nos utilisateurs

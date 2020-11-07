@@ -69,7 +69,6 @@ if ($_POST) {
     $_POST['categ'] = trim(htmlentities($_POST['categ']));
     $_POST['titrenew'] = utf8_encode(trim(htmlentities($_POST['titrenew'])));
     $_POST['textnews'] = utf8_encode(trim(htmlentities($_POST['textnews'])));
-
     $test = $_SESSION["user"];
     $sess = ses($test);
     $insert_stmt = $objPdo->prepare("INSERT INTO news (idtheme,titrenews,datenews,textenews,idredacteur) VALUES(:idtheme,:titrenews,:datenews,:textenews,:idredacteur)");

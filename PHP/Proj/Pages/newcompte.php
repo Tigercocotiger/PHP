@@ -70,11 +70,12 @@
       if (testmail($_POST['email'])) {
         if ($_POST['psw'] == $_POST['psw-repeat']) {
           if (testpsw($_POST['psw'])) {
+            $mdp = sha1($_POST['psw']);
             $insert_stmt = $objPdo->prepare("INSERT INTO redacteur (nom,prenom,email,motdepasse,datecompte) VALUES(:nomS, :prenomS, :emailS, :motdepasseS, :datecompteS)");
             $insert_stmt->bindValue('nomS', $_POST['nom'], PDO::PARAM_STR);
             $insert_stmt->bindValue('prenomS', $_POST['prenom'], PDO::PARAM_STR);
             $insert_stmt->bindValue('emailS', $_POST['email'], PDO::PARAM_STR);
-            $insert_stmt->bindValue('motdepasseS', $_POST['psw'], PDO::PARAM_STR);
+            $insert_stmt->bindValue('motdepasseS', $mdp, PDO::PARAM_STR);
             $insert_stmt->bindValue('datecompteS', $today, PDO::PARAM_STR);
             $insert_stmt->execute();
             echo "<script>alert('ajout ok')</script>";

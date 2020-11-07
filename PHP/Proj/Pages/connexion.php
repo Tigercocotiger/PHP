@@ -14,8 +14,8 @@ if (!isset($_SESSION['login'])) {
   $sess = new sess(null, '', null, null, null, null);
   if (isset($_POST['username']) && isset($_POST['pass'])) {
     include('conn.php');
-    $username   = $_POST['username'];
-    $password   = $_POST['pass'];
+    $username   = htmlentities(trim($_POST['username']));
+    $password   = sha1(htmlentities(trim($_POST['pass'])));
     $stmt = $objPdo->query("select * from redacteur where email = '$username'");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
