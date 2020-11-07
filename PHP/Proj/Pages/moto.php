@@ -1,12 +1,12 @@
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" media="screen" type="text/css" href="../CSS/Accueilmoto.css" />
 <script>
     function ConfirmLogout() {
-        return confirm("Are you sure you want to logout?testtest");
+        return confirm("Are you sure you want to logout?");
     }
 </script>
-<div class="divlol">
+<link rel="stylesheet" media="screen" type="text/css" href="../CSS/Accueilmoto.css" />
+<div class="divmoto">
     
     <p class="titre">Nos news sur les motos</p>
     <div class="information">
@@ -19,7 +19,7 @@
     header('content-type: text/html; charset=utf-8');
     include('conn.php');
     session_start();
-    $_SESSION['url'] = 'accueil.php';
+    $_SESSION['url'] = 'moto.php';
     if (isset($_SESSION['login']) and $_SESSION['login'] == 'ok') {
         echo '
     <ul>

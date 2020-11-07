@@ -1,5 +1,6 @@
 <?php
 class Sess {
+  public $id;
   public $connexion;
   public $utilisateur;
   public $nom;
@@ -67,7 +68,9 @@ class Sess {
   function get_utilisateur() {
     return $this->utilisateur;
   }
-  
+  function get_datecompte(){
+    return $this->datecompte;
+  }
 }
 
 

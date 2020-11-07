@@ -1,4 +1,5 @@
 <html>
+<meta charset="utf8">
 
 <?php
 include('sess.php');
@@ -8,6 +9,7 @@ if ($_SESSION['login'] != 'ok') {
     header("Location:connexion.php");
 }
 ?>
+
 
 
 <form method="POST" action="rediger.php">
@@ -52,12 +54,12 @@ if ($_POST) {
     echo $_POST['textnews'];
     echo '<br>';
     $insert_stmt = $objPdo->prepare("INSERT INTO news (idtheme,titrenews,datenews,textenews,idredacteur) VALUES(:idtheme,:titrenews,:datenews,:textenews,:idredacteur)");
-            $insert_stmt->bindValue('idtheme', $_POST['categ'], PDO::PARAM_INT);
-            $insert_stmt->bindValue('titrenews', $_POST['titrenew'], PDO::PARAM_STR);
-            $insert_stmt->bindValue('datenews', $today, PDO::PARAM_STR);
-            $insert_stmt->bindValue('textenews',$_POST['textnews'], PDO::PARAM_STR);
-            $insert_stmt->bindValue('idredacteur', $sess->get_id(), PDO::PARAM_INT);
-            $insert_stmt->execute();
+    $insert_stmt->bindValue('idtheme', $_POST['categ'], PDO::PARAM_INT);
+    $insert_stmt->bindValue('titrenews', $_POST['titrenew'], PDO::PARAM_STR);
+    $insert_stmt->bindValue('datenews', $today, PDO::PARAM_STR);
+    $insert_stmt->bindValue('textenews', $_POST['textnews'], PDO::PARAM_STR);
+    $insert_stmt->bindValue('idredacteur', $sess->get_id(), PDO::PARAM_INT);
+    $insert_stmt->execute();
 }
 ?>
 

@@ -3,7 +3,7 @@
 <link rel="stylesheet" media="screen" type="text/css" href="../CSS/Accueil.css" />
 <script>
     function ConfirmLogout() {
-        return confirm("Are you sure you want to logout?testtest");
+        return confirm("Are you sure you want to logout?");
     }
 </script>
 <div class="jaune">
