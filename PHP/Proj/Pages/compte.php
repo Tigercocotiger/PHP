@@ -53,7 +53,25 @@ if ($_SESSION['login'] != 'ok') {
     <li><a href="deconnexion.php" onclick="return ConfirmLogout()">Deconnexion</a></li>
 
 </ul>
-
+<?php
+include('conn.php');
+$test = $_SESSION["user"];
+$sess = ses($test);
+$idredacteur = $sess->get_id();
+if ($idredacteur == 1 || $idredacteur == 2) {
+    echo "<h1 class='post'>Les utilisateurs du sites</h1>";
+    $result = $objPdo->query('select * FROM redacteur where idredacteur >2');
+    echo "<div class='users'><table class='customers'> <thead> <tr> <th>Identifiant</th> <th>Nom</th> <th>Prenom</th> <th>Datecompte</th></tr> </thead>";
+    foreach ($result as $row) {
+     echo "<tr><td>" . $row['idredacteur'] . "</td> 
+	<td>" . utf8_encode($row['nom']). "</td> 
+	<td>" . utf8_encode($row['prenom']) . "</td> 
+	<td>" . $row['datecompte'] . "</td> 
+	<td> <a href=modifier.php?id=" . $row['idredacteur'] . "> Modifier </a> </td>
+	<td> <a href=supprimer.php?id=" . $row['idredacteur'] . "> Supprimer </a> </td></tr>";
+    }
+    echo "</table> </div><br/>";
+}?>
 <h1 class="post">Vos post</h1>
 <div class="information">
     <p class="info">Ci dessous vous retrouverez les news postées par nos utilisateurs
@@ -67,19 +85,6 @@ include('conn.php');
 $test = $_SESSION["user"];
 $sess = ses($test);
 $idredacteur = $sess->get_id();
-if ($idredacteur == 1 || $idredacteur == 2) {
-    $result = $objPdo->query('select * FROM redacteur');
-    echo "<div class='users'><table class='customers'> <thead> <tr> <th>Identifiant</th> <th>Nom</th> <th>Prenom</th> <th>Datecompte</th></tr> </thead>";
-    foreach ($result as $row) {
-     echo "<tr><td>" . $row['idredacteur'] . "</td> 
-	<td>" . utf8_encode($row['nom']). "</td> 
-	<td>" . utf8_encode($row['prenom']) . "</td> 
-	<td>" . $row['datecompte'] . "</td> 
-	<td> <a href=modifier.php?id=" . $row['idredacteur'] . "> Modifier </a> </td>
-	<td> <a href=supprimer.php?id=" . $row['idredacteur'] . "> Supprimer </a> </td></tr>";
-    }
-    echo "</table> </div><br/>";
-}
 $_SESSION['url'] = 'moto.php';
 $result = $objPdo->query("select * from news where idredacteur = '$idredacteur'");
 foreach ($result as $row) {
